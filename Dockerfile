@@ -1,4 +1,4 @@
-FROM golang:1.26-alpine AS builder
+FROM golang:1.27-alpine AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 RUN mkdir -p /out \
     && CGO_ENABLED=0 GOOS=linux go build -o /out/app main.go
 
-FROM alpine:3.24.1
+FROM alpine:3.24.2
 
 WORKDIR /app
 
